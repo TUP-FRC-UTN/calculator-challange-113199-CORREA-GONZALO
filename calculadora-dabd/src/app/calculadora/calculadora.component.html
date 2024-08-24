@@ -1,0 +1,25 @@
+<div>
+    <label>Valor 1</label>
+    <input type="number" [(ngModel)]="primerValor">
+
+    <label>Valor 2</label>
+    <input type="number" [(ngModel)]="segundoValor">
+
+    <div class="buttons-container">
+        <button (click)="seleccionarOperacion('suma')">+</button>
+        <button (click)="seleccionarOperacion('resta')">-</button>
+        <button (click)="seleccionarOperacion('multiplicacion')">x</button>
+        <button (click)="seleccionarOperacion('division')">/</button>
+        <button (click)="seleccionarOperacion('potencia')">^</button>
+        <button (click)="seleccionarOperacion('raiz')">CE</button>
+    </div>
+
+    <app-operaciones
+        [primerValor]="primerValor"
+        [segundoValor]="segundoValor"
+        [operacion]="operacionSeleccionada"
+        (resultado)="obtenerResultado($event)">
+    </app-operaciones>
+
+    <label>Resultado: {{resultado}}</label>
+</div>
